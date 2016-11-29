@@ -1,6 +1,7 @@
 package com.jairrillo.jerseyspringmongodb.users;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,18 +9,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UserEntity {
 	
 	@Id
-	private String userID;
-	
-	private String name;
-	
-	@NotEmpty
-	private String email;
-	
-	private Boolean isActive;
-	
-	private String password;
-	
+	private String userID;	
+	private String name;		
+	private String email;	
+	private Boolean isActive;	
+	private String password;	
 	private Integer role;
+	private List<UserConditionsEntity> userConditions;
 
 	public String getUserID() {
 		return userID;
@@ -67,6 +63,14 @@ public class UserEntity {
 
 	public void setRole(Integer role) {
 		this.role = role;
+	}
+
+	public List<UserConditionsEntity> getUserConditions() {
+		return userConditions;
+	}
+
+	public void setUserConditions(List<UserConditionsEntity> userConditions) {
+		this.userConditions = userConditions;
 	}
 
 }

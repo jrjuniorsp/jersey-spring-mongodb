@@ -17,6 +17,14 @@ public class UserService {
 		UserEntity userEntity = new UserEntity();
 		//Copy values
 		BeanUtils.copyProperties(userTO, userEntity);
+		//Conditions
+		List<UserConditionsEntity> userConditions = new ArrayList<>();
+		userConditions.add(new UserConditionsEntity("CONDITION 1"));
+		userConditions.add(new UserConditionsEntity("CONDITION 2"));
+		userConditions.add(new UserConditionsEntity("CONDITION 3"));
+		
+		userEntity.setUserConditions(userConditions);
+		
 		//Save the Values
 		userRepository.save(userEntity);
 		//Copy the values again

@@ -1,7 +1,5 @@
 package com.jairrillo.jerseyspringmongodb.users;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -14,13 +12,9 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class UserTO {
 	
 	private String userID;
-	private String name;
-	
-	@NotEmpty
+	private String name;	
 	private String email;
-	private Boolean isActive;
-		
-	@NotEmpty
+	private Boolean isActive;		
 	private String password;
 	
 	private Integer role;

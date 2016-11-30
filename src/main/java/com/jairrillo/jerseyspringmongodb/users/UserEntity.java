@@ -1,5 +1,6 @@
 package com.jairrillo.jerseyspringmongodb.users;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -66,6 +67,9 @@ public class UserEntity {
 	}
 
 	public List<UserConditionsEntity> getUserConditions() {
+		if (userConditions == null) {
+			userConditions = new ArrayList<>();
+		}
 		return userConditions;
 	}
 

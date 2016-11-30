@@ -43,5 +43,44 @@ public class UserService {
 		}
 		return listUsers;
 	}
+	
+	public UserTO getUserByName(String name) {
+		UserTO userTO = new UserTO();
+		//Call repository
+		UserEntity userEntity = userRepository.findByName(name);
+		//Copy values
+		BeanUtils.copyProperties(userEntity, userTO);		
+		return userTO;
+	}
+	
+	public UserTO getUserByNameAndEmail(String name, String email) {
+		UserTO userTO = new UserTO();
+		//Call repository
+		UserEntity userEntity = userRepository.findByNameAndEmail(name, email);
+		//Copy values
+		BeanUtils.copyProperties(userEntity, userTO);		
+		return userTO;		
+	}
+	
+	public UserTO getUserByCondition(String condition) {
+		UserTO userTO = new UserTO();
+		//Call repository
+		UserEntity userEntity = userRepository.findUserByCondition(condition);
+		//Copy values
+		BeanUtils.copyProperties(userEntity, userTO);		
+		return userTO;				
+	}
+	
+	public void addCondition(String condition) {
+		UserConditionsEntity userConditionsEntity = new UserConditionsEntity("CONDITION 21");
+		userRepository.addCondition(userConditionsEntity);
+		System.out.println("That worked!");
+	}
+	
+	public void deleteCondition(String condition) {
+		//UserEntity userEntity = userRepository.findByName("Robin");
+		userRepository.deleteCondition(condition);		
+		System.out.println("That worked!");
+	}
 
 }
